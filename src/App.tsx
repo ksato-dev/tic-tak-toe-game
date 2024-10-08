@@ -67,9 +67,19 @@ function App() {
     getCellString(userState2CellState(initUserType)),
   );
 
+  const resetGridState = () => {
+    // let newGridState = [...gridState];
+    let newGridState = gridState.map(row => row.map(() => CellType.Null));
+    setGridState(newGridState);
+  }
+
   return (
     <>
+      <div>
+        <Button onClick={resetGridState} variant="outlined" sx={{ marginBottom: "10px" }}>Reset</Button>
+      </div>
       <ToggleButtonGroup
+        sx={{ marginBottom: "10px" }}
         // color="primary"
         color="secondary"
         value={toggleAlignmentState}
